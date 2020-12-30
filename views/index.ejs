@@ -15,15 +15,15 @@
             -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
             background-color: rgb(33, 28, 41);
-            color: rgb(228, 228, 228);
-            padding: 20px;
-            box-shadow: 20px 20px 20px grey;
+            color : white;
+            box-shadow: 10px 10px 20px grey;
+            border-radius: 10px;
         }
         .roundCorners{
             border-radius: 10px;
         }
         img {
-            max-height: 100%;
+            max-width: 100%;
         }
         :root{
             background-color:  rgb(228, 228, 228);
@@ -31,20 +31,26 @@
         .imgDiv{
             padding:0;
         }
-        .padding{
-            padding: 20px;
+        .paddingz{
+            padding: 0px;
         }
         .imgBorder{
             border-bottom-left-radius: 10px;
             border-top-left-radius: 10px;
         }
+        .marginz{
+            margin: 0;
+        }
+        .title{
+            font-size: 2em;
+        }
     </style>
 </head>
 <body>
-    <div class="content row roundCorners imgDiv">
-        <div class="col-md-6 roundCorners imgDiv"><img  class="imgBorder" src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx110277-Yxit7fu0jYOJ.png"></div>
-        <div class="col-md-6 padding">
-            <h1><%= title %></h1>
+    <div class="content row">
+        <div class="col-md-5 paddingz"><img  class="imgBorder" src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx110277-Yxit7fu0jYOJ.png"></div>
+        <div class="col p-4">
+            <h1 class="title"><%= title %></h1>
             <p>Next episode airing in : <b><%=time %></b></p>
         </div>
         

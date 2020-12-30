@@ -37,7 +37,6 @@ var url = "https://graphql.anilist.co",
     }),
   };
 
-var anime_data;
 app.set("view engine", "ejs");
 // Make the HTTP Api request
 
@@ -48,7 +47,7 @@ function handleResponse(response) {
 }
 
 function handleData(data) {
-  anime_data = data;
+  return data;
 }
 
 function handleError(error) {
@@ -56,15 +55,11 @@ function handleError(error) {
   console.error(error);
 }
 
-fetch(url, options).then(handleResponse).then(handleData).catch(handleError);
-
-app.get("/", (req, res) => {
-  //poggy();
-  // let pog = `${
-  //   anime_data.data.Media.title.english
-  // } : Next episode airs in ${secondsToDhms(
-  //   anime_data.data.Media.nextAiringEpisode.timeUntilAiring
-  // )}`;
+app.get("/", async (req, res) => {
+  let anime_data = await fetch(url, options)
+    .then(handleResponse)
+    .then(handleData)
+    .catch(handleError);
   let title = anime_data.data.Media.title.english;
   let time = secondsToDhms(
     anime_data.data.Media.nextAiringEpisode.timeUntilAiring
