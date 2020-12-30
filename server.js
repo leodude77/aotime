@@ -49,7 +49,6 @@ function handleResponse(response) {
 
 function handleData(data) {
   anime_data = data;
-  console.log(JSON.stringify(data));
 }
 
 function handleError(error) {
@@ -57,15 +56,10 @@ function handleError(error) {
   console.error(error);
 }
 
-async function poggy() {
-  await fetch(url, options)
-    .then(handleResponse)
-    .then(handleData)
-    .catch(handleError);
-}
+fetch(url, options).then(handleResponse).then(handleData).catch(handleError);
 
 app.get("/", (req, res) => {
-  poggy();
+  //poggy();
   // let pog = `${
   //   anime_data.data.Media.title.english
   // } : Next episode airs in ${secondsToDhms(
